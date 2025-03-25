@@ -8,7 +8,7 @@ def main():
 	print(f"Screen width: {SCREEN_WIDTH}")
 	print(f"Screen height: {SCREEN_HEIGHT}")
 	screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-	p = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, PLAYER_RADIUS)			
+	p = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, PLAYER_RADIUS, PLAYER_TURN_SPEED, PLAYER_SPEED)			
 	running = True
 	clock = pygame.time.Clock()
 	dt = 0	
@@ -18,6 +18,7 @@ def main():
 			if event.type == pygame.QUIT:
 				running = False
 		screen.fill((0, 0, 0))
+		p.update(dt)
 		p.draw(screen)
 		pygame.display.flip()
 	
