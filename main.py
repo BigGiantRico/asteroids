@@ -48,6 +48,12 @@ def main():
 		
 		# Update game state
 		updatable.update(dt)
+		for asteroid in asteroids:
+			if asteroid.collide(p):
+				print("Game Over")
+				pygame.quit()
+			
+
 		
 		# Render
 		screen.fill((0, 0, 0))
