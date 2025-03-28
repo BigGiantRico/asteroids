@@ -3,6 +3,7 @@ from constants import *
 from player import *
 from asteroids import *
 from asteroidfield import *
+from shot import * 
 
 def main():
 	pygame.init()
@@ -19,12 +20,17 @@ def main():
 	updatable = pygame.sprite.Group()
 	drawable = pygame.sprite.Group()
 	asteroids = pygame.sprite.Group()
+	shots = pygame.sprite.Group()
 	Player.containers = (updatable, drawable)
 	Asteroid.containers = (asteroids, updatable, drawable)
 	AsteroidField.containers = (updatable)
+	Shot.containers = (updatable, drawable)
+
+	
+
 	
 	# Create player
-	p = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, PLAYER_RADIUS, PLAYER_TURN_SPEED, PLAYER_SPEED)
+	p = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, PLAYER_RADIUS, PLAYER_TURN_SPEED, PLAYER_SPEED, shots)
 	
 	#Create AsteroidField 
 	af = AsteroidField()
